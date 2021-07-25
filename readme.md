@@ -12,4 +12,4 @@ usage - python ffp.py <config_file> <input_file> <output_file>
 
 Test cases have been implemented via Pytest in the test_ffp.py file
 
-Included dockerfile prints this readme file then executes the test cases. To run manually please use the CLI
+Included dockerfile executes the test cases via pytest. To run manually please use the run the dockerfile with /bin/bash/
