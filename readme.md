@@ -14,3 +14,5 @@ usage - python ffp.py <config_file> <input_file> <output_file>
 Test cases have been implemented via Pytest in the test_ffp.py file
 
 Included dockerfile executes the test cases via pytest. To run manually please use the run the dockerfile with /bin/bash
+
+Assumption that any commas in the actual data itself would be escaped per column as per the Python CSV writer
