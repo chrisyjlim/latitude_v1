@@ -244,3 +244,20 @@ class TestClass:
             src = ffp.readCSV(output, cfg['DelimitedEncoding'], cfg["IncludeHeader"])
             tgt = ffp.readCSV(testdata, cfg['DelimitedEncoding'],cfg["IncludeHeader"])
             assert src==tgt
+    
+    def test_empty(self):
+        #test empty file
+        config = "config/spec.json"
+        cfg = ffp.readConfig(config)
+        
+        input = "input/test8empty.in"
+        output = "output/test8.out"
+        testdata = "testdata/test8.csv"
+        
+        
+        ffp.parse(config, input, output)
+        src = ffp.readCSV(output, cfg['DelimitedEncoding'] ,cfg["IncludeHeader"])
+        tgt = ffp.readCSV(testdata, cfg['DelimitedEncoding'], cfg["IncludeHeader"])
+        
+        assert src == tgt
+    
