@@ -2,7 +2,7 @@ import pytest
 import ffp
 import json
 
-#yes I am aware there is some redundancy in these tests but they allow for more specific debugging
+#yes I am aware there is some redundancy in these tests and they could potentially be combined into one case
 
 class TestClass:
     
@@ -261,3 +261,18 @@ class TestClass:
         
         assert src == tgt
     
+    def test_short(self):
+        #test short row
+        config = "config/spec.json"
+        cfg = ffp.readConfig(config)
+        
+        input = "input/test9.in"
+        output = "output/test9.out"
+        testdata = "testdata/test9.csv"
+        
+        
+        ffp.parse(config, input, output)
+        src = ffp.readCSV(output, cfg['DelimitedEncoding'] ,cfg["IncludeHeader"])
+        tgt = ffp.readCSV(testdata, cfg['DelimitedEncoding'], cfg["IncludeHeader"])
+        
+        assert src == tgt
